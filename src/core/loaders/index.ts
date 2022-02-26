@@ -1,11 +1,18 @@
 import { Express } from 'express';
 
-import middlewares from '@core/loaders/middlewares';
-import project from '@core/loaders/project';
+import loadMiddlewares from '@core/loaders/middlewares';
+import loadProject from '@core/loaders/project';
+import loadQueue from '@core/loaders/queue';
+import error from '@services/internal/middlewares/error';
+import notFound from '@services/internal/middlewares/notFound';
 
 export default async (app: Express) => {
-  middlewares(app);
-  project(app);
+  loadMiddlewares(app);
+  loadProject(app);
+  loadQueue();
+
+  app.use(error);
+  app.use(notFound);
 
   return app;
 };

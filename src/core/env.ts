@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 
-import Joi, { STRING_REQUIRED, OBJECT } from '@services/internal/helpers/joi';
+import Joi, { STRING_REQUIRED, OBJECT, STRING } from '@services/internal/helpers/joi';
 
 dotenv.config();
 
@@ -10,6 +10,11 @@ const envSchema = OBJECT
     PORT: STRING_REQUIRED,
     NODE_ENV: STRING_REQUIRED,
     ROOT_PATH: STRING_REQUIRED,
+    LOG_DIR: STRING_REQUIRED,
+    API_VERSION: STRING_REQUIRED,
+    // EMAIL
+    MJ_APIKEY_PUBLIC: STRING,
+    MJ_APIKEY_PRIVATE: STRING,
   })
   .unknown();
 

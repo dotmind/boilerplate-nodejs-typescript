@@ -1,14 +1,18 @@
 import express, { Application } from 'express';
 
+import api from '@services/internal/infrastructure/api';
+
+import { retrievedNotifications } from '@services/notifications/middlewares';
+import getNotifications from '@services/notifications/controllers';
+
 const router = express.Router();
 
 export default (app: Application) => {
-  app.use('/api/v1/notification', router);
+  app.use(api.scope('notification'), router);
 
   router.get(
     '/',
-    (_req, res) => {
-      res.status(201).json({ message: 'Yes', success: true });
-    },
+    retrievedNotifications,
+    api.controller(getNotifications),
   );
 };
