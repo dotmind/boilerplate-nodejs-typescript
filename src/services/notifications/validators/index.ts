@@ -5,5 +5,5 @@ export const notificationBody = {
 };
 
 export const notificationQuery = {
-  message: STRING,
+  message: STRING.allow(null).allow(''),
 };
