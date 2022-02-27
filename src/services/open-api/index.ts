@@ -33,7 +33,7 @@ const openAPI = {
     title: 'Open Api',
     description: 'Open Api',
     // @TODO : Change email
-    contact: { email: 'open-doc@dotmind.io' },
+    contact: { email: 'open@documentation.api' },
   },
   servers: getServers(),
   tags: [
@@ -54,10 +54,12 @@ const openAPI = {
       },
     },
     schemas: {
+      // @TODO : Add schema to documentation
       Notification,
     },
   },
   paths: {
+    // @TODO : Add endpoints to documentation
     ...notificationEndpoints,
   },
 };
