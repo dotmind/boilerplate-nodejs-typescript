@@ -7,8 +7,14 @@ const GLOBAL = {
   INVALID_ID: 'Invalid ID format',
 };
 
+const REQUEST = {
+  BAD_BODY: 'Invalid body request provided',
+  BAD_QUERY_PARAMS: 'Invalid query params request provided',
+};
+
 const ERROR_CODES = {
   GLOBAL,
+  REQUEST,
 };
 
 export default ERROR_CODES;

@@ -1,4 +1,8 @@
-import ConfigType, { MailConfigType, ApiConfigType } from 'types/config';
+import ConfigType, { MailConfigType, ApiConfigType, DatabaseConfigType } from 'types/config';
+
+const databaseConfig: DatabaseConfigType = {
+  mongooseUri: String(process.env.MONGOOSE_URI),
+};
 
 const mailConfig: MailConfigType = {
   publicMailApikey: String(process.env.MJ_APIKEY_PUBLIC),
@@ -14,6 +18,7 @@ const config: ConfigType = {
   srcPath: String(process.env.ROOT_PATH),
   isDev: String(process.env.NODE_ENV) === 'development',
   logDir: String(process.env.LOG_DIR),
+  database: databaseConfig,
   api: apiConfig,
   mail: mailConfig,
 };

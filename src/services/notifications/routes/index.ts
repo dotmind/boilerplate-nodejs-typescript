@@ -2,8 +2,10 @@ import express, { Application } from 'express';
 
 import api from '@services/internal/infrastructure/api';
 
-import { retrievedNotifications } from '@services/notifications/middlewares';
-import getNotifications from '@services/notifications/controllers';
+import { assertBody } from '@services/internal/middlewares/assert';
+import { getNotifications, createNotification } from '@services/notifications/middlewares';
+import { getAll, create } from '@services/notifications/controllers';
+import { notificationBody } from '@services/notifications/validators';
 
 const router = express.Router();
 
@@ -12,7 +14,14 @@ export default (app: Application) => {
 
   router.get(
     '/',
-    retrievedNotifications,
-    api.controller(getNotifications),
+    getNotifications,
+    api.controller(getAll),
+  );
+
+  router.post(
+    '/',
+    assertBody(notificationBody),
+    createNotification,
+    api.controller(create),
   );
 };

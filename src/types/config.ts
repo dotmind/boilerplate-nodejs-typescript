@@ -1,3 +1,7 @@
+export type DatabaseConfigType = {
+  mongooseUri: string;
+};
+
 export type ApiConfigType = {
   version: string;
 };
@@ -12,6 +16,7 @@ type ConfigType = {
   srcPath: string;
   isDev: boolean;
   logDir: string;
+  database: DatabaseConfigType;
   api: ApiConfigType,
   mail: MailConfigType;
 };
