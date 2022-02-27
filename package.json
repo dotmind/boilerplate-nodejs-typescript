@@ -24,7 +24,8 @@
     "logplease": "^1.2.15",
     "mongoose": "^6.2.3",
     "morgan": "^1.10.0",
-    "node-mailjet": "^3.3.7"
+    "node-mailjet": "^3.3.7",
+    "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.2",
