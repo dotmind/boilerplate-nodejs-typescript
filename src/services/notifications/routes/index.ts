@@ -1,14 +1,28 @@
 import express, { Application } from 'express';
 
+import api from '@services/internal/infrastructure/api';
+
+import { assertBody, assertQuery } from '@services/internal/middlewares/assert';
+import { getNotifications, createNotification } from '@services/notifications/middlewares';
+import { getAll, create } from '@services/notifications/controllers';
+import { notificationBody, notificationQuery } from '@services/notifications/validators';
+
 const router = express.Router();
 
 export default (app: Application) => {
-  app.use('/api/v1/notification', router);
+  app.use(api.scope('notification'), router);
 
   router.get(
     '/',
-    (_req, res) => {
-      res.status(201).json({ message: 'Yes', success: true });
-    },
+    assertQuery(notificationQuery),
+    getNotifications,
+    api.controller(getAll),
+  );
+
+  router.post(
+    '/',
+    assertBody(notificationBody),
+    createNotification,
+    api.controller(create),
   );
 };

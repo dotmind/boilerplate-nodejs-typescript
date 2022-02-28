@@ -1,10 +1,12 @@
-import { NotificationType } from 'types/notification';
+import { Notification } from '@services/notifications/models';
 
 /* eslint-disable */
 declare global {
   namespace Express {
     interface Request {
-      notifications: NotificationType[];
+      // @TODO : Add override of express request
+      notifications: Notification[];
+      notification: Notification;
     }
   }
 }

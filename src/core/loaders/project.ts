@@ -9,11 +9,15 @@ const {
 } = config;
 
 const loadProject = (app: Express) => {
-  const match = isDev ? `${srcPath}/services/**/routes/*.ts` : `${srcPath}/services/**/routes/*.js`;
-  const routes = glob.sync(match);
+  const prefix = `${srcPath}/services/**/`;
+  const suffix = isDev ? '*.ts' : '*.js';
+
+  const routes = glob.sync(`${prefix}routes/${suffix}`);
+  const models = glob.sync(`${prefix}models/${suffix}`);
 
   /* eslint-disable import/no-dynamic-require, global-require */
   routes.forEach((route) => require(`../../../${route}`).default(app));
+  models.forEach((model) => require(`../../../${model}`));
   /* eslint-enable import/no-dynamic-require, global-require */
 };
 
