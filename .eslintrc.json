@@ -15,6 +15,7 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "lines-between-class-members": "off",
     "import/prefer-default-export": "off",
     "class-methods-use-this": "off",
     "import/extensions": [
