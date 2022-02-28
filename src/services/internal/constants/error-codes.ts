@@ -12,9 +12,15 @@ const REQUEST = {
   BAD_QUERY_PARAMS: 'Invalid query params request provided',
 };
 
+const API_KEY = {
+  INVALID: 'Invalid api key',
+  NOT_FOUND: 'Api key not found',
+};
+
 const ERROR_CODES = {
   GLOBAL,
   REQUEST,
+  API_KEY,
 };
 
 export default ERROR_CODES;

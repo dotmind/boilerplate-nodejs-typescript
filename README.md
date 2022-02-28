@@ -37,3 +37,7 @@ To create route documentation, you need :
 - git push -u origin1 main
 - git remote remove origin
 - git remote rename origin1 origin
+
+## 🔑 Api key
+- generate public / private api key : `npm run bash:generate-keys`
+- generate new api key : `npm run cli:apikey`
