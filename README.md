@@ -29,3 +29,11 @@ To create route documentation, you need :
   - export endpoints (ex: `src/services/notifications/doc/endpoints/index.ts`)
 - Import Schema and Endpoints on `src/services/open-api/index.ts`
   - On this file you are comment with `@TODO` to add documentation schema + endpoint + some instructions
+
+## 🎉 Use boilerplate
+- git clone git@github.com:dotmind/boilerplate-nodejs-typescript.git myProject
+- git remote add origin1 MY_GITHUB_PROJECT
+- git branch -M main
+- git push -u origin1 main
+- git remote remove origin
+- git remote rename origin1 origin
