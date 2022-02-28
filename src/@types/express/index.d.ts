@@ -4,6 +4,7 @@ import { Notification } from '@services/notifications/models';
 declare global {
   namespace Express {
     interface Request {
+      // @TODO : Add override of express request
       notifications: Notification[];
       notification: Notification;
     }

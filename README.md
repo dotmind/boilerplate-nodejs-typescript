@@ -8,14 +8,12 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
-
 ## 🛠 Example
 
 An example of service exists in project :
 - `src/services/notifications`:
   - controllers -> send response to client (no logic in the controller function)
-  - doc -> create open documentation here
+  - doc -> create open documentation
   - middlewares -> process client request
   - models -> create mongoose models
   - routes -> create routes for services and call middlewares + controllers
