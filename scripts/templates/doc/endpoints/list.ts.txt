@@ -1,0 +1,11 @@
+import { SERVICE_TAG } from '@services/open-api/constants';
+import { API_KEY, BEARER_AUTH, apiResponseArray } from '@services/open-api/helpers';
+
+const list = {
+  tags: [SERVICE_TAG],
+  operationId: 'SERVICE_NAMEList',
+  security: [API_KEY, BEARER_AUTH],
+  responses: { 200: apiResponseArray({ $ref: '#/components/schemas/MODEL_NAME' }) },
+};
+
+export default list;

@@ -8,6 +8,10 @@ npm run dev
 yarn dev
 ```
 
+## 🪄 Create a new service CRUD
+
+To generate a new service you can execute : `npm run bash:generate-service`
+
 ## 🛠 Example
 
 An example of service exists in project :

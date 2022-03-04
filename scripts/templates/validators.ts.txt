@@ -1,0 +1,5 @@
+import { STRING_REQUIRED } from '@services/internal/helpers/joi';
+
+export const SERVICE_NAMEBody = {
+  message: STRING_REQUIRED,
+};

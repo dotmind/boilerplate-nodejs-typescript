@@ -2,6 +2,8 @@
 
 export const NOTIFICATION_TAG = 'Notification';
 export const OTHERS_TAG = 'Others';
+// GENERATED_TAG
+// END_GENERATED
 
 export const TYPES = {
   STRING: { type: 'string' },

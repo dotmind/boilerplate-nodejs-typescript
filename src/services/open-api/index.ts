@@ -1,7 +1,13 @@
 import config from '@core/config';
-import { NOTIFICATION_TAG } from '@services/open-api/constants';
+import {
+  NOTIFICATION_TAG,
+  // GENERATED_TAG
+  // END_GENERATED
+} from '@services/open-api/constants';
 import notificationEndpoints from '@services/notifications/doc/endpoints';
 import { Notification } from '@services/notifications/doc/schemas';
+// GENERATED_IMPORT
+// END_GENERATED
 
 const getServers = () => {
   // @TODO : Put here preprod - production env
@@ -38,6 +44,8 @@ const openAPI = {
   servers: getServers(),
   tags: [
     { name: NOTIFICATION_TAG },
+    // ADD_TAG_GENERATED
+    // END_GENERATED
   ],
   components: {
     securitySchemes: {
@@ -56,11 +64,14 @@ const openAPI = {
     schemas: {
       // @TODO : Add schema to documentation
       Notification,
+      // GENERATED_SCHEMA
+      // END_GENERATED
     },
   },
   paths: {
-    // @TODO : Add endpoints to documentation
     ...notificationEndpoints,
+    // GENERATED_ENDPOINT
+    // END_GENERATED
   },
 };
 

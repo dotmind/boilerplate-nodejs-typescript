@@ -9,6 +9,7 @@
     "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "cli:apikey": "ts-node src/scripts/generate_apikey.ts",
+    "bash:generate-service": "/bin/bash ./scripts/create-service.sh",
     "bash:generate-keys": "/bin/bash ./src/scripts/generate_keys.sh"
   },
   "keywords": [],

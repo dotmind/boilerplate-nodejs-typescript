@@ -1,0 +1,27 @@
+import { Request, Response } from 'express';
+
+import api from '@services/internal/infrastructure/api';
+
+export const list = async (req: Request, res: Response) => {
+  const { SERVICE_NAMEs } = req;
+
+  return api.success(res, 200)({ SERVICE_NAMEs: SERVICE_NAMEs || [] });
+};
+
+export const create = async (req: Request, res: Response) => {
+  const { SERVICE_NAME } = req;
+
+  return api.success(res, 201)({ SERVICE_NAME });
+};
+
+export const show = async (req: Request, res: Response) => {
+  const { SERVICE_NAME } = req;
+
+  return api.success(res, 200)({ SERVICE_NAME });
+};
+
+export const update = async (req: Request, res: Response) => {
+  const { SERVICE_NAME } = req;
+
+  return api.success(res, 200)({ SERVICE_NAME });
+};

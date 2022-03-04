@@ -1,0 +1,15 @@
+import create from '@services/SERVICE_NAME/doc/endpoints/create';
+import list from '@services/SERVICE_NAME/doc/endpoints/list';
+import update from '@services/SERVICE_NAME/doc/endpoints/update';
+import show from '@services/SERVICE_NAME/doc/endpoints/show';
+
+export default {
+  '/SERVICE_NAME': {
+    get: list,
+    post: create,
+  },
+  '/SERVICE_NAME/{id}': {
+    patch: update,
+    get: show,
+  },
+};

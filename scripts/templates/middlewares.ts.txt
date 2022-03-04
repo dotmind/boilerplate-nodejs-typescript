@@ -1,0 +1,84 @@
+import { NextFunction, Request, Response } from 'express';
+
+import api from '@services/internal/infrastructure/api';
+import { logger } from '@services/internal/infrastructure/logger';
+import MODEL_NAME from '@services/SERVICE_NAME/models';
+
+export const getAll = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    req.SERVICE_NAMEs = await MODEL_NAME.find() || [];
+
+    return next();
+  } catch (error) {
+    logger.error('SERVICE_NAME "getAll" : ', error.message);
+
+    return api.error(res, 500)({ message: error.message });
+  }
+};
+
+export const getOne = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { params: { id } } = req;
+
+    req.SERVICE_NAME = await MODEL_NAME.findById(id);
+
+    return next();
+  } catch (error) {
+    logger.error('SERVICE_NAME "getOne" : ', error.message);
+
+    return api.error(res, 500)({ message: error.message });
+  }
+};
+
+export const add = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { body } = req;
+
+    const SERVICE_NAME = new MODEL_NAME({ ...body });
+    await SERVICE_NAME.save();
+
+    req.SERVICE_NAME = SERVICE_NAME;
+
+    return next();
+  } catch (error) {
+    logger.error('SERVICE_NAME "add" : ', error.message);
+
+    return api.error(res, 500)({ message: error.message });
+  }
+};
+
+export const edit = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { body, params: { id } } = req;
+
+    const SERVICE_NAME = await MODEL_NAME.findByIdAndUpdate(
+      id,
+      { $set: body },
+      { new: true, upsert: false },
+    );
+
+    req.SERVICE_NAME = SERVICE_NAME;
+
+    return next();
+  } catch (error) {
+    logger.error('SERVICE_NAME "edit" : ', error.message);
+
+    return api.error(res, 500)({ message: error.message });
+  }
+};

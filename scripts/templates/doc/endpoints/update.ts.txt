@@ -1,0 +1,29 @@
+import { SERVICE_TAG, TYPES } from '@services/open-api/constants';
+import {
+  API_KEY,
+  BEARER_AUTH,
+  json,
+  apiResponseFromRef,
+} from '@services/open-api/helpers';
+
+const update = {
+  tags: [SERVICE_TAG],
+  description: 'Update a SERVICE_NAME',
+  operationId: 'SERVICE_NAMEUpdate',
+  security: [API_KEY, BEARER_AUTH],
+  requestBody: json({
+    schema: {
+      type: 'object',
+      properties: {
+        message: {
+          ...TYPES.STRING,
+          required: true,
+          example: 'Mon message',
+        },
+      },
+    },
+  }),
+  responses: { 200: apiResponseFromRef('#/components/schemas/MODEL_NAME') },
+};
+
+export default update;

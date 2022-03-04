@@ -1,0 +1,20 @@
+import { SERVICE_TAG, TYPES } from '@services/open-api/constants';
+import { API_KEY, BEARER_AUTH, apiResponseFromRef } from '@services/open-api/helpers';
+
+const show = {
+  tags: [SERVICE_TAG],
+  operationId: 'SERVICE_NAMEShow',
+  security: [API_KEY, BEARER_AUTH],
+  parameters: [
+    {
+      name: 'id',
+      in: 'path',
+      required: true,
+      description: 'Id of SERVICE_NAME',
+      schema: TYPES.STRING,
+    },
+  ],
+  responses: { 200: apiResponseFromRef('#/components/schemas/MODEL_NAME') },
+};
+
+export default show;

@@ -1,0 +1,50 @@
+import express, { Application } from 'express';
+
+import api from '@services/internal/infrastructure/api';
+
+import { assertBody } from '@services/internal/middlewares/assert';
+import { SERVICE_NAMEBody } from '@services/SERVICE_NAME/validators';
+import {
+  add,
+  edit,
+  getOne,
+  getAll,
+} from '@services/SERVICE_NAME/middlewares';
+import {
+  list,
+  show,
+  create,
+  update,
+} from '@services/SERVICE_NAME/controllers';
+
+const router = express.Router();
+
+export default (app: Application) => {
+  app.use(api.scope('SERVICE_NAME'), router);
+
+  router.get(
+    '/',
+    getAll,
+    api.controller(list),
+  );
+
+  router.post(
+    '/',
+    assertBody(SERVICE_NAMEBody),
+    add,
+    api.controller(create),
+  );
+
+  router.get(
+    '/:id',
+    getOne,
+    api.controller(show),
+  );
+
+  router.patch(
+    '/:id',
+    assertBody(SERVICE_NAMEBody),
+    edit,
+    api.controller(update),
+  );
+};
