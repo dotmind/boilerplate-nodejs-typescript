@@ -1,6 +1,29 @@
 ## 🚀 Getting Started
+### Requirement
 
-First, to launch the project locally create `.env` file and run the development server:
+- Install `redis` and launch it
+- Install `mongodb` and launch it
+- Install `nodejs`
+
+
+### Launch project
+
+First, to launch the project locally create `.env` file:
+
+```bash
+cp .env.example .env # to clone .env.example on .env
+
+# edit .env file with your environment var
+```
+
+Second, create `logs` and `.keys` folder:
+
+```bash
+mkdir logs
+mkdir .keys
+```
+
+Finaly run the development server:
 
 ```bash
 npm run dev

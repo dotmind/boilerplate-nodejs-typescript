@@ -9,5 +9,5 @@ export const NUMBER_REQUIRED = { ...NUMBER, required: true };
 export const DATE = { type: Date };
 export const DATE_REQUIRED = { ...DATE, required: true };
 
-export const OBJECT_ID = { types: Schema.Types.ObjectId };
+export const OBJECT_ID = { type: Schema.Types.ObjectId };
 export const OBJECT_ID_REQUIRED = { ...OBJECT_ID, required: true };
