@@ -13,11 +13,14 @@ const apiConfig: ApiConfigType = {
   version: String(process.env.API_VERSION),
 };
 
+const isDev: boolean = String(process.env.NODE_ENV) === 'development';
+
 const config: ConfigType = {
   port: Number(String(process.env.PORT)),
-  srcPath: String(process.env.ROOT_PATH),
-  isDev: String(process.env.NODE_ENV) === 'development',
-  logDir: String(process.env.LOG_DIR),
+  srcPath: isDev ? 'src' : 'dist',
+  apiKeyPath: `${process.cwd()}/.keys`,
+  isDev,
+  logDir: `${process.cwd()}/logs`,
   database: databaseConfig,
   api: apiConfig,
   mail: mailConfig,

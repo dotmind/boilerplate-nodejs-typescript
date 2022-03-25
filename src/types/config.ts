@@ -16,6 +16,7 @@ type ConfigType = {
   srcPath: string;
   isDev: boolean;
   logDir: string;
+  apiKeyPath: string;
   database: DatabaseConfigType;
   api: ApiConfigType,
   mail: MailConfigType;
