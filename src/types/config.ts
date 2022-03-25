@@ -20,6 +20,7 @@ type ConfigType = {
   database: DatabaseConfigType;
   api: ApiConfigType,
   mail: MailConfigType;
+  apiKeyEnable: boolean;
 };
 
 export default ConfigType;

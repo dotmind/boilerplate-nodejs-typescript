@@ -15,6 +15,8 @@ const envSchema = OBJECT
     MJ_APIKEY_PRIVATE: STRING,
     // DATABASE
     MONGOOSE_URI: STRING_REQUIRED,
+    // API KEY
+    API_KEY: STRING,
   })
   .unknown();
 

@@ -9,14 +9,18 @@ import config from '@core/config';
 import openAPI from '@services/open-api';
 import checkApiKey from '@services/internal/middlewares/apikey';
 
+const { isDev, apiKeyEnable } = config;
+
 export default async (app: Express) => {
+  app.disable('x-powered-by');
+
   app.use(cors());
   app.use(compression());
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
 
-  if (config.isDev) {
+  if (isDev) {
     app.use(morgan('combined'));
   } else {
     app.use(morgan('tiny'));
@@ -30,7 +34,9 @@ export default async (app: Express) => {
   );
 
   // Api key firewall
-  app.use(checkApiKey);
+  if (apiKeyEnable) {
+    app.use(checkApiKey);
+  }
 
   return app;
 };

@@ -61,3 +61,8 @@ To create route documentation, you need :
 ## 🔑 Api key
 - generate public / private api key : `npm run bash:generate-keys`
 - generate new api key : `npm run cli:apikey`
+- to disable api key, you can add on `.env`:
+
+```bash
+API_KEY=0
+```

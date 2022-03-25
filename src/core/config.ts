@@ -24,6 +24,7 @@ const config: ConfigType = {
   database: databaseConfig,
   api: apiConfig,
   mail: mailConfig,
+  apiKeyEnable: String(process.env.API_KEY) !== '0',
 };
 
 export default config;
