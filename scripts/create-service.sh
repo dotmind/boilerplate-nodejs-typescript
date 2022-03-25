@@ -7,7 +7,17 @@ echo "What is service's name? \r"
 read -p "" name
 response() {
   pathname="$path/$name"
-  sh "scripts/utils/create-folder.sh" "$pathname"
+
+  echo $name
+  indexSpecialChar=$(echo $name | awk -v s='-' '{print index($1, s)}')
+  echo $indexSpecialChar
+  indexSpecialCharLimit=$(( $indexSpecialChar + 1))
+  echo $indexSpecialCharLimit
+
+  nameWithoutSpecialChar="${name:0:$(($indexSpecialChar - 1))}$(tr '[:lower:]' '[:upper:]' <<<"${name:$indexSpecialChar:1}")${name:$indexSpecialCharLimit}"
+
+  echo $nameWithoutSpecialChar
+  # sh "scripts/utils/create-folder.sh" "$pathname"
 }
 
 response
