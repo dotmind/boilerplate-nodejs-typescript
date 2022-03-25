@@ -3,6 +3,8 @@ export const BEARER_AUTH = { BearerAuth: [] };
 
 export const json = (content: { [key: string]: string | Object }) => ({ content: { 'application/json': content } });
 
+export const multipartFormData = (content: { [key: string]: string | Object }) => ({ content: { 'multipart/form-data': content } });
+
 export const apiResponse = (content: { [key: string]: string }) => json({
   schema: {
     type: 'object',

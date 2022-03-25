@@ -16,13 +16,6 @@ cp .env.example .env # to clone .env.example on .env
 # edit .env file with your environment var
 ```
 
-Second, create `logs` and `.keys` folder:
-
-```bash
-mkdir logs
-mkdir .keys
-```
-
 Finaly run the development server:
 
 ```bash

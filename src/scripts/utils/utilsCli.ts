@@ -9,3 +9,5 @@ export {
   exit,
   logger,
 };
+
+/* eslint-enable no-console */

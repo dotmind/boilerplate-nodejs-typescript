@@ -1,8 +1,9 @@
-import inquirer from 'inquirer';
+/* eslint-disable */
 import chalk from 'chalk';
+import inquirer from 'inquirer';
 
-import { newLine, exit, logger } from 'scripts/utils/utils_cli';
 import ApiKeyManager from '@services/internal/infrastructure/file/apikey';
+import { newLine, exit, logger } from './utils/utilsCli';
 
 const ACTIONS = {
   CREATE: 'Create',
@@ -139,8 +140,10 @@ const run = async () => {
       return handleList();
     case ACTIONS.CANCEL:
     default:
-      exit();
+      return exit();
   }
 };
 
 run();
+
+/* eslint-enable */
