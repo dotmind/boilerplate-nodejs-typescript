@@ -1,4 +1,4 @@
-import ConfigType, { MailConfigType, ApiConfigType, DatabaseConfigType } from 'types/config';
+import ConfigType, { MailConfigType, ApiConfigType, DatabaseConfigType, ServerConfigType } from 'types/config';
 
 const databaseConfig: DatabaseConfigType = {
   mongooseUri: String(process.env.MONGOOSE_URI),
@@ -15,6 +15,11 @@ const apiConfig: ApiConfigType = {
 
 const isDev: boolean = String(process.env.NODE_ENV) === 'development';
 
+const server: ServerConfigType = {
+  methods: String(process.env.CORS_METHODS),
+  origin: String(process.env.CORS_ORIGIN).split(','),
+};
+
 const config: ConfigType = {
   port: Number(String(process.env.PORT)),
   srcPath: isDev ? 'src' : 'dist',
@@ -25,6 +30,7 @@ const config: ConfigType = {
   api: apiConfig,
   mail: mailConfig,
   apiKeyEnable: String(process.env.API_KEY) !== '0',
+  server,
 };
 
 export default config;

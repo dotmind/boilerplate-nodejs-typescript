@@ -1,5 +1,4 @@
 import { Express } from 'express';
-import cors from 'cors';
 import compression from 'compression';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
@@ -8,13 +7,18 @@ import swaggerUI from 'swagger-ui-express';
 import config from '@core/config';
 import openAPI from '@services/open-api';
 import checkApiKey from '@services/internal/middlewares/apikey';
+import cors from '@services/internal/middlewares/cors';
 
-const { isDev, apiKeyEnable } = config;
+const {
+  isDev,
+  apiKeyEnable,
+} = config;
 
 export default async (app: Express) => {
   app.disable('x-powered-by');
 
-  app.use(cors());
+  cors(app);
+
   app.use(compression());
 
   app.use(bodyParser.json());

@@ -11,6 +11,11 @@ export type MailConfigType = {
   privateMailApikey: string;
 };
 
+export type ServerConfigType = {
+  methods: string;
+  origin: string[];
+};
+
 type ConfigType = {
   port: number;
   srcPath: string;
@@ -21,6 +26,7 @@ type ConfigType = {
   api: ApiConfigType,
   mail: MailConfigType;
   apiKeyEnable: boolean;
+  server: ServerConfigType;
 };
 
 export default ConfigType;
